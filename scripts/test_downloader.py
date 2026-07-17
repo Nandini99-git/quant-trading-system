@@ -1,13 +1,17 @@
 from src.data.downloader import BinanceDownloader
 
-downloader = BinanceDownloader()
 
-downloader.create_directory_structure()
+def main():
+    downloader = BinanceDownloader()
 
-url = downloader.build_download_url(
-    timeframe="1h",
-    year=2018,
-    month=1,
-)
+    downloader.create_directory_structure()
 
-print(url)
+    downloader.download_zip(
+        timeframe="1h",
+        year=2018,
+        month=1,
+    )
+
+
+if __name__ == "__main__":
+    main()
